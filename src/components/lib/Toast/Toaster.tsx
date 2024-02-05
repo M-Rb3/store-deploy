@@ -26,7 +26,7 @@ export function Toaster() {
             data-type={type}
             duration={toast.duration}
             open={toast.isOpen}
-            onOpenChange={(open) => onOpenChange(open, toast)}
+            onOpenChange={(open: any) => onOpenChange(open, toast)}
             key={toast.id}
           >
             <i className={icon} />
