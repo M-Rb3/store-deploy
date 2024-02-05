@@ -11,16 +11,6 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: '/banyan',
-        destination: 'https://banyan.gg/',
-        permanent: false,
-      },
-      {
-        source: '/vibes',
-        destination: 'https://www.proofofvibes.com',
-        permanent: false,
-      },
-      {
         source: '/pitch',
         destination: 'https://nearpitchfestconsensus.splashthat.com/',
         permanent: false,

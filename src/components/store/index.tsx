@@ -5,6 +5,7 @@ import { VmComponent } from '@/components/vm/VmComponent';
 const Container = styled.div`
   height: 100vh;
 `;
+console.log(process.env.NEXT_PUBLIC_CONTRACT_ID);
 
 export function StoreBOS() {
   return (

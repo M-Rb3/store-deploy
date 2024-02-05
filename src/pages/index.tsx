@@ -20,8 +20,8 @@ const HomePage: NextPageWithLayout = () => {
   return (
     <>
       <MetaTags
-        title={`${process.env.NEXT_PUBLIC_ACCOUNT_ID} Store`}
-        description={`${process.env.NEXT_PUBLIC_ACCOUNT_ID} Store.`}
+        title={`${process.env.NEXT_PUBLIC_CONTRACT_ID} Store`}
+        description={`${process.env.NEXT_PUBLIC_CONTRACT_ID} Store.`}
       />
       <StoreBOS />
     </>
