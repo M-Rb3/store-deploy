@@ -1,6 +1,6 @@
 # Store Deploy
 
-Easily deploy a linktree of your profile on the SocialDB (bos) - updates when you add information from any gateway
+Easily deploy a Store of your Mintbase ContractId - updates when you add information from any gateway
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FM-Rb3%2Fstore-deploy&build-command=pnpm%20run%20build&env=NEXT_PUBLIC_NETWORK_ID,NEXT_PUBLIC_HOSTNAME,NEXT_PUBLIC_CONTRACT_ID&envDescription=mainnet-near.org-themecanbeanything&envLink=https%3A%2F%2Fgithub.com%2FM-Rb3%2Fstore-deploy%2Fblob%2Fmain%2F.env.example)
 
@@ -41,6 +41,6 @@ More info on Next.js deployments [here](https://nextjs.org/docs/pages/building-y
 ## Running with docker
 
 ```bash
-docker build -t linktree-bos .
-docker run -p 3000:3000 linktree-bos
+docker build -t store-deploy .
+docker run -p 3000:3000 store-deploy
 ```
