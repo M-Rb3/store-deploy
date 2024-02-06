@@ -75,14 +75,6 @@ export default function VmInitializer() {
                   ? 'http://34.70.226.83:3030/relay'
                   : 'https://near-relayer-mainnet.api.pagoda.co/relay',
             }) as any, // TODO: Refactor setupFastAuth() to TS
-            setupKeypom({
-              trialBaseUrl:
-                networkId == 'testnet' ? 'https://test.near.org/#trial-url/' : 'https://near.org/#trial-url/',
-              networkId,
-              trialSplitDelim: '/',
-              signInContractId,
-              modalOptions: KEYPOM_OPTIONS(networkId),
-            }) as any, // TODO: Refactor setupKeypom() to TS
           ],
         }),
         customElements: {
