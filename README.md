@@ -43,7 +43,7 @@ NEXT_PUBLIC_THEME=default
 ```
 
 The entry component is `Mintbase Store Template` and it's located at
-`/src/components/polygon/index.tsx`
+`/src/components/store/index.tsx`
 
 It loads the `baam25.near/widget/store` BOS component. The source can be found [here](https://near.org/baam25.near/widget/store).
 
