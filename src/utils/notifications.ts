@@ -35,7 +35,6 @@ const registerServiceWorker = () => {
   } catch (e: any) {
     const scope = 'Error while registering the push notification service-worker';
     console.error(scope, e);
-    recordHandledError({ scope, message: e.message || e });
   }
 };
 
@@ -55,7 +54,6 @@ const handlePushManagerSubscribe = async () => {
     });
   } catch (e: any) {
     const scope = 'Error while subscribing to the push notification service-worker.';
-    recordHandledError({ scope, message: e.message || e });
     throw e;
   }
 };
@@ -72,7 +70,6 @@ export const handlePushManagerUnsubscribe = async (hide: () => void) => {
   } catch (e: any) {
     const scope = 'Error while handling push notification unsubscribe';
     console.error(scope, e);
-    recordHandledError({ scope, message: e.message || e });
   } finally {
     hide();
   }
@@ -137,10 +134,6 @@ export const handleTurnOn = async (accountId: string, hideModal: () => void) => 
     setProcessSuccess();
   } catch (error: any) {
     setProcessError(error);
-    recordHandledError({
-      scope: 'Error in the attempt to turn on Push Notifications',
-      message: error.message || error,
-    });
   } finally {
     hideModal();
     setProcessEnded();
