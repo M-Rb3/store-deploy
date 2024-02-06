@@ -6,6 +6,19 @@ To setup a custom domain on vercel
 
 https://vercel.com/docs/concepts/projects/domains/add-a-domain
 
+## Widget Props
+
+| Props             |  Type   |          Default           |                      Description                      |
+| ----------------- | :-----: | :------------------------: | :---------------------------------------------------: |
+| accountId         | string  | wallet signed in accountId |                           -                           |
+| store             | string  |             ""             |                 Mintbase Contract Id                  |
+| customStyle       | string  |             ""             |                           -                           |
+| description       | string  |             ""             |              Store's custom description               |
+| showHeader        | boolean |            true            |               Show contractId as title                |
+| header            | string  |         contractId         |                 Store's custom title                  |
+| perPage           |   int   |             48             |         Number of NFTs displayed on each page         |
+| AFFILIATE_ACCOUNT | string  |        baam25.near         | https://docs.mintbase.xyz/market/selling-as-affiliate |
+
 ## Setup & Development
 
 Initialize repo:
@@ -21,6 +34,14 @@ cp .env.example .env
 pnpm dev
 ```
 
+```
+// .env
+NEXT_PUBLIC_NETWORK_ID=mainnet
+NEXT_PUBLIC_HOSTNAME=https://near.org
+NEXT_PUBLIC_CONTRACT_ID={{cotractId}} // EX: mint.yearofchef.near
+NEXT_PUBLIC_THEME=default
+```
+
 The entry component is `Mintbase Store Template` and it's located at
 `/src/components/polygon/index.tsx`
 
@@ -28,7 +49,6 @@ It loads the `baam25.near/widget/store` BOS component. The source can be found [
 
 EX: https://near.social/baam25.near/widget/store?store=spin-nft-contract.near
 ![image](https://github.com/M-Rb3/store-deploy/assets/68287884/a9697c5d-cf59-4f28-8b6f-e48d6a21f13c)
-
 
 ## Deployment
 
