@@ -32,6 +32,57 @@ type ProductionNetwork = {
   };
 };
 
+export interface TosData {
+  showTos: boolean;
+  agreementsForUser: UserTosAgreement[];
+  latestTosVersion: number;
+}
+
+type UserTosAgreement = {
+  accountId: string;
+  blockHeight: number;
+  value: number;
+};
+
+export type IdosUser = {
+  humanId?: string;
+  address?: string;
+  publicKey?: string;
+};
+
+export type IdosWalletInfo = {
+  address: string;
+  human_id: string;
+  id: string;
+  message: string;
+  public_key: string;
+  signature: string;
+};
+
+export type NotificationSubscriptionData = {
+  subscription: PushSubscription;
+  accountId: string;
+  gateway: string;
+};
+
+export type NotificationLocalStorageByAccountId = {
+  isNotificationSupported?: boolean;
+  isPushManagerSupported?: boolean;
+  isPermisionGranted?: boolean;
+  notNowTS?: number;
+  showOnTS?: number;
+  permission?: boolean;
+  subscribeStarted?: boolean;
+  subscribeError?: string;
+  bannerNotNowTS?: number;
+};
+
+export interface NotificationLocalStorage {
+  [accountId: string]: NotificationLocalStorageByAccountId;
+}
+
+export type NotificationLocalStorageFull = NotificationLocalStorage & NotificationLocalStorageByAccountId;
+
 // type DevelopmentNetwork = {
 //   networkId: 'localnet';
 //   viewAccountId: string;

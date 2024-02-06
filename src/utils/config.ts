@@ -8,7 +8,7 @@ export const networks: Record<NetworkId, Network> = {
     walletUrl: 'https://wallet.near.org',
     helperUrl: 'https://helper.mainnet.near.org',
     fastAuth: {
-      mpcRecoveryUrl: 'https://mpc-recovery-prod-7tk2cmmtcq-ue.a.run.app',
+      mpcRecoveryUrl: 'https://mpc-recovery-leader-mainnet-cg7nolnlpa-ue.a.run.app',
       authHelperUrl: 'https://api.kitwallet.app',
       accountIdSuffix: 'near',
       firebase: {
@@ -56,3 +56,18 @@ export const networks: Record<NetworkId, Network> = {
 export const networkId: NetworkId = (process.env.NEXT_PUBLIC_NETWORK_ID as NetworkId) || 'testnet';
 export const network = networks[networkId];
 export const signInContractId = networkId === 'testnet' ? 'v1.social08.testnet' : 'social.near';
+export const termsDomainName = `${process.env.NEXT_PUBLIC_TOS_SUBDOMAIN_NAME}/ipfs/${process.env.NEXT_PUBLIC_TERMS_CID}`;
+export const privacyDomainName = `${process.env.NEXT_PUBLIC_TOS_SUBDOMAIN_NAME}/ipfs/${process.env.NEXT_PUBLIC_PRIVACY_CID}`;
+export const notificationApplicationServerKey = process.env.NEXT_PUBLIC_NOTIFICATIONS_APPLICATION_SERVER_KEY;
+export const notificationsHostName = process.env.NEXT_PUBLIC_NOTIFICATIONS_HOSTNAME;
+export const notificationsGatewayUrl = process.env.NEXT_PUBLIC_NOTIFICATIONS_GATEWAY_URL ?? 'https://near.org';
+export const notificationsLocalStorageKey = 'push-notifications-v0';
+export const localStorageAccountIdKey = 'near-social-vm:v01::accountId:';
+export const isLocalEnvironment = process.env.NEXT_PUBLIC_LOCAL_ENVIRONMENT === 'true';
+
+export const commitModalBypassAuthorIds = (process.env.NEXT_PUBLIC_COMMIT_MODAL_BYPASS_AUTHOR_IDS ?? '')
+  .split(',')
+  .filter((item) => !!item);
+export const commitModalBypassSources = (process.env.NEXT_PUBLIC_COMMIT_MODAL_BYPASS_SOURCES ?? '')
+  .split(',')
+  .filter((item) => !!item);
