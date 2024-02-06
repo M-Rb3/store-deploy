@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { MetaTags } from '@/components/MetaTags';
 import { StoreBOS } from '@/components/store';
@@ -6,7 +6,6 @@ import { useDefaultLayout } from '@/hooks/useLayout';
 import { useAuthStore } from '@/stores/auth';
 import { useCurrentComponentStore } from '@/stores/current-component';
 import type { NextPageWithLayout } from '@/utils/types';
-import { Navigation } from '@/components/navigation/Navigation';
 
 const HomePage: NextPageWithLayout = () => {
   const signedIn = useAuthStore((store) => store.signedIn);
@@ -24,7 +23,6 @@ const HomePage: NextPageWithLayout = () => {
         title={`${process.env.NEXT_PUBLIC_CONTRACT_ID} Store`}
         description={`${process.env.NEXT_PUBLIC_CONTRACT_ID} Store.`}
       />
-      <Navigation />
       <StoreBOS />
     </>
   );

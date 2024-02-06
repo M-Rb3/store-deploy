@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { VmComponent } from '@/components/vm/VmComponent';
+import { ComponentWrapperPage } from '../near-org/ComponentWrapperPage';
 
 const Container = styled.div`
   height: 100vh;

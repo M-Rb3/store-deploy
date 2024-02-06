@@ -1,22 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import type { FormEvent } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { Button } from '@/components/lib/Button';
-import { useBosComponents } from '@/hooks/useBosComponents';
 import { useSignInRedirect } from '@/hooks/useSignInRedirect';
 import { useAuthStore } from '@/stores/auth';
-
-import NearLogo from '../icons/near-logo.svg';
-import ReturnIconImage from '../icons/return.svg';
-import SearchIconImage from '../icons/search.svg';
-import { NotificationButton } from '../NotificationButton';
 import { UserDropdownMenu } from '../UserDropdownMenu';
-import { MainNavigationMenu } from './MainNavigationMenu';
-import { TypeAheadDropdown } from './TypeAheadDropdown';
 
 const Wrapper = styled.div<{
   scrolled?: boolean;
@@ -116,13 +104,6 @@ const Actions = styled.div`
 
 export const DesktopNavigation = () => {
   const [scrolled, setScrolled] = useState(false);
-  const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState('');
-  const searchRef = useRef(null);
-  const [searchIsFocused, _setSearchIsFocused] = useState(false);
-  const showTypeAheadDropdown = searchIsFocused && !!searchTerm;
-  const components = useBosComponents();
-  const searchFocusTimeout = useRef<NodeJS.Timeout>();
   const signedIn = useAuthStore((store) => store.signedIn);
   const { requestAuthentication } = useSignInRedirect();
 
@@ -142,29 +123,12 @@ export const DesktopNavigation = () => {
     };
   }, []);
 
-  const setSearchIsFocused = (isFocused: boolean) => {
-    if (isFocused) {
-      _setSearchIsFocused(true);
-      clearTimeout(searchFocusTimeout.current);
-    } else {
-      searchFocusTimeout.current = setTimeout(() => {
-        _setSearchIsFocused(false);
-      }, 100);
-    }
-  };
-
   const handleSignIn = () => {
     requestAuthentication();
   };
 
   const handleCreateAccount = () => {
     requestAuthentication(true);
-  };
-
-  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    router.push(`/${components.search.indexPage}?term=${encodeURIComponent(searchTerm)}`);
-    setSearchIsFocused(false);
   };
 
   return (
