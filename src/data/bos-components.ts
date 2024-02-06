@@ -51,6 +51,8 @@ type NetworkComponents = {
   settings: {
     index: string;
   };
+  tosCheck: string;
+  tosContent: string;
   viewSource: string;
   widgetMetadata: string;
   widgetMetadataEditor: string;
@@ -119,6 +121,8 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
       widgetMetadata: 'eugenethedream/widget/WidgetMetadata',
       widgetMetadataEditor: `${testnetTLA}/widget/WidgetMetadataEditor`,
       wrapper: `${testnetTLA}/widget/GatewayWrapper`,
+      tosCheck: 'near/widget/TosCheck',
+      tosContent: 'adminalpha.near/widget/TosContent',
     },
 
     mainnet: {
@@ -176,6 +180,8 @@ export const componentsByNetworkId = ((): Record<NetworkId, NetworkComponents | 
       widgetMetadata: 'mob.near/widget/WidgetMetadata',
       widgetMetadataEditor: 'near/widget/WidgetMetadataEditor',
       wrapper: 'near/widget/GatewayWrapper',
+      tosCheck: 'near/widget/TosCheck',
+      tosContent: 'adminalpha.near/widget/TosContent',
     },
   };
 })();
