@@ -30,6 +30,7 @@ import { setupFastAuth } from '@/lib/selector/setup';
 import { useAuthStore } from '@/stores/auth';
 import { useVmStore } from '@/stores/vm';
 import { networkId, signInContractId } from '@/utils/config';
+import { setupMintbaseWallet } from '@near-wallet-selector/mintbase-wallet';
 import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
 
 export default function VmInitializer() {
@@ -55,7 +56,11 @@ export default function VmInitializer() {
         selector: setupWalletSelector({
           network: networkId,
           modules: [
-            setupNearWallet(),
+            setupMintbaseWallet({
+              walletUrl: 'https://wallet.mintbase.xyz',
+              callbackUrl: 'https://store-deploy-omega.vercel.app/',
+              deprecated: false,
+            }),
             setupMyNearWallet(),
             setupSender(),
             setupHereWallet(),
@@ -66,6 +71,7 @@ export default function VmInitializer() {
             }),
             setupNightly(),
             setupWelldoneWallet(),
+
             setupFastAuth({
               networkId,
               signInContractId,
