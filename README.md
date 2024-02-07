@@ -2,6 +2,10 @@ Easily deploy a Store of your Mintbase ContractId - updates when you add informa
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FM-Rb3%2Fstore-deploy&build-command=pnpm%20run%20build&env=NEXT_PUBLIC_NETWORK_ID,NEXT_PUBLIC_HOSTNAME,NEXT_PUBLIC_CONTRACT_ID&envDescription=mainnet-near.org-themecanbeanything&envLink=https%3A%2F%2Fgithub.com%2FM-Rb3%2Fstore-deploy%2Fblob%2Fmain%2F.env.example)
 
+Demo
+https://www.youtube.com/watch?v=4uXFo5nZry0
+
+
 To setup a custom domain on vercel
 
 https://vercel.com/docs/concepts/projects/domains/add-a-domain
@@ -43,7 +47,7 @@ NEXT_PUBLIC_THEME=default
 ```
 
 The entry component is `Mintbase Store Template` and it's located at
-`/src/components/polygon/index.tsx`
+`/src/components/store/index.tsx`
 
 It loads the `baam25.near/widget/store` BOS component. The source can be found [here](https://near.org/baam25.near/widget/store).
 
