@@ -5,7 +5,7 @@ import { setupMeteorWallet } from '@near-wallet-selector/meteor-wallet';
 import type { WalletSelectorModal } from '@near-wallet-selector/modal-ui';
 import { setupModal } from '@near-wallet-selector/modal-ui';
 import { setupMyNearWallet } from '@near-wallet-selector/my-near-wallet';
-import { setupNearWallet } from '@near-wallet-selector/near-wallet';
+import { mapValues } from 'lodash';
 import { setupNeth } from '@near-wallet-selector/neth';
 import { setupNightly } from '@near-wallet-selector/nightly';
 import { setupSender } from '@near-wallet-selector/sender';
@@ -31,7 +31,7 @@ import { useAuthStore } from '@/stores/auth';
 import { useVmStore } from '@/stores/vm';
 import { networkId, signInContractId } from '@/utils/config';
 import { setupMintbaseWallet } from '@near-wallet-selector/mintbase-wallet';
-import { KEYPOM_OPTIONS } from '@/utils/keypom-options';
+import { isValidAttribute } from 'dompurify';
 
 export default function VmInitializer() {
   const [signedIn, setSignedIn] = useState(false);
@@ -83,15 +83,14 @@ export default function VmInitializer() {
           ],
         }),
         customElements: {
-          Link: (props: any) => {
-            if (!props.to && props.href) {
-              props.to = props.href;
-              delete props.href;
-            }
-            if (props.to) {
-              props.to = sanitizeUrl(props.to);
-            }
-            return <Link {...props} />;
+          Link: ({ to, href, ...rest }: { to: string | object | undefined; href: string | object }) => {
+            const cleanProps = mapValues({ to, href, ...rest }, (val: any, key: string) => {
+              if (!['to', 'href'].includes(key)) return val;
+              if (key === 'href' && !val) val = to;
+              return typeof val === 'string' && isValidAttribute('a', 'href', val) ? val : 'about:blank';
+            });
+
+            return <Link {...cleanProps} />;
           },
         },
       });
