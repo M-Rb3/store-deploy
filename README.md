@@ -49,10 +49,20 @@ NEXT_PUBLIC_THEME=default
 The entry component is `Mintbase Store Template` and it's located at
 `/src/components/store/index.tsx`
 
-It loads the `baam25.near/widget/store` BOS component. The source can be found [here](https://near.org/baam25.near/widget/store).
+It loads the `baam25.near/widget/store` &  `baam25.near/widget/store`  BOS components.
+
+- https://near.org/near/widget/ComponentDetailsPage?src=baam25.near/widget/storeActivities
+
+- https://near.org/near/widget/ComponentDetailsPage?src=baam25.near/widget/store
 
 EX: https://near.social/baam25.near/widget/store?store=spin-nft-contract.near
+
 ![image](https://github.com/M-Rb3/store-deploy/assets/68287884/a9697c5d-cf59-4f28-8b6f-e48d6a21f13c)
+
+EX: https://near.social/baam25.near/widget/storeActivities?contractId=spin-nft-contract.near
+
+![image](https://github.com/M-Rb3/store-deploy/assets/68287884/2957205d-0771-42b6-a239-df252bfe7181)
+
 
 ## Deployment
 
